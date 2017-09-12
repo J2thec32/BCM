@@ -43,7 +43,7 @@ namespace BCM.Controllers
                     break;
 
                 case "CompanyName":
-                    records = records.OrderByDescending(x => x.CompanyName);
+                    records = records.OrderBy(x => x.CompanyName);
                     break;
 
                 default:
@@ -77,6 +77,7 @@ namespace BCM.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Details(int? Id)
         {
             if (Id == null)
@@ -87,6 +88,32 @@ namespace BCM.Controllers
             if (contact == null)
             {
                 return HttpNotFound();
+            }
+            return View(contact);
+        }
+        [HttpGet]
+        public ActionResult Edit(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(Id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,FirstName,Surname,CompanyName,Address,Address2,Address3,City,County,Country,PostCode,Telephone,Telephone1,Telephone2,Telephone3,Telephone4,Email,Email2,Website,Notes")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(contact).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
             return View(contact);
         }

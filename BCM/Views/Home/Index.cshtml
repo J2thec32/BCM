@@ -17,7 +17,13 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+
+    @Html.ActionLink("Create New Contact", "Create")
+
+    @*<a href='@Url.Action("Create New", "Create")'>
+        <img src='@Url.Content("~/Content/Images/MyLinkImage.png")' />
+    </a>
+    *@
 
     @*<input type="button" class="btn btn-info" value="Search" onclick="location.href='Url.Action("Create")'" />*@
     @*<button onclick="location.href'@Url.Action("Home", "Index")';return falses;">Refresh</button>*@
