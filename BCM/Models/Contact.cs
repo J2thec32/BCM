@@ -14,6 +14,7 @@ namespace BCM.Models
     
     public partial class Contact
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string CompanyName { get; set; }
@@ -33,6 +34,5 @@ namespace BCM.Models
         public string Email2 { get; set; }
         public string Website { get; set; }
         public string Notes { get; set; }
-        public int Id { get; set; }
     }
 }

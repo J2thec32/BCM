@@ -4,14 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ContactManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+      <Schema Namespace="ContactManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contacts">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="Surname" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="256" Nullable="false" />
@@ -35,41 +31,18 @@ warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a prima
           <Property Name="Notes" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="ContactManagerModelStoreContainer">
-          <EntitySet Name="Contacts" EntityType="Self.Contacts" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Contacts].[Id] AS [Id], 
-    [Contacts].[FirstName] AS [FirstName], 
-    [Contacts].[Surname] AS [Surname], 
-    [Contacts].[CompanyName] AS [CompanyName], 
-    [Contacts].[Address] AS [Address], 
-    [Contacts].[Address2] AS [Address2], 
-    [Contacts].[Address3] AS [Address3], 
-    [Contacts].[City] AS [City], 
-    [Contacts].[County] AS [County], 
-    [Contacts].[Country] AS [Country], 
-    [Contacts].[PostCode] AS [PostCode], 
-    [Contacts].[Telephone] AS [Telephone], 
-    [Contacts].[Telephone1] AS [Telephone1], 
-    [Contacts].[Telephone2] AS [Telephone2], 
-    [Contacts].[Telephone3] AS [Telephone3], 
-    [Contacts].[Telephone4] AS [Telephone4], 
-    [Contacts].[Email] AS [Email], 
-    [Contacts].[Email2] AS [Email2], 
-    [Contacts].[Website] AS [Website], 
-    [Contacts].[Notes] AS [Notes]
-    FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ContactManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Contact">
           <Key>
-            <PropertyRef Name="FirstName" />
-            <PropertyRef Name="Surname" />
             <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CompanyName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
@@ -89,7 +62,6 @@ warning 6002: The table/view 'ContactManager.dbo.Contacts' does not have a prima
           <Property Name="Email2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityContainer Name="ContactManagerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contacts" EntityType="Self.Contact" />

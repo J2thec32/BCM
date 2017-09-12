@@ -193,25 +193,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ContactsModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ContactsModel.Context.cs</LastGenOutput>
-      <DependentUpon>ContactsModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ContactsModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ContactsModel.edmx</DependentUpon>
-      <LastGenOutput>ContactsModel.cs</LastGenOutput>
-    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\ContactsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ContactsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ContactsModel.edmx.diagram">
-      <DependentUpon>ContactsModel.edmx</DependentUpon>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -221,7 +204,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\ContactsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ContactsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ContactsModel.edmx.diagram">
+      <DependentUpon>ContactsModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Models\ContactsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ContactsModel.edmx</DependentUpon>
+      <LastGenOutput>ContactsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ContactsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ContactsModel.edmx</DependentUpon>
+      <LastGenOutput>ContactsModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
